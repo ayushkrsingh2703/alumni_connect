@@ -710,7 +710,7 @@ export const IndiaCourseNetworkMap: React.FC<{ compact?: boolean }> = ({ compact
                 </div>
               </div>
 
-              {/* Alumni Connect List for this Course */}
+              {/* LINKORA List for this Course */}
               <div className="bg-slate-50 dark:bg-slate-800/60 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-700 shadow-sm space-y-4">
                 <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
                   <div>

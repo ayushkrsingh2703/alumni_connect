@@ -77,7 +77,7 @@ export const PersonalProfileView: React.FC = () => {
               Sign In to Manage Your Profile
             </h2>
             <p className="text-slate-600 dark:text-slate-400 text-xs mt-2 leading-relaxed">
-              Join Alumni Connect to build verified connections, showcase skills, upload your resume, and power the AI matchmaking network.
+              Join LINKORA to build verified connections, showcase skills, upload your resume, and power the AI matchmaking network.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">

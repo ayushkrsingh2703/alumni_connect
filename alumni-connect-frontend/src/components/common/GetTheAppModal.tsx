@@ -66,7 +66,7 @@ export const GetTheAppModal: React.FC = () => {
             <div>
               <span className="text-[11px] font-bold uppercase tracking-wider text-blue-200">Official Mobile Client</span>
               <h2 className="text-xl sm:text-2xl font-black text-white leading-tight">
-                Alumni Connect Mobile App
+                LINKORA Mobile App
               </h2>
             </div>
           </div>

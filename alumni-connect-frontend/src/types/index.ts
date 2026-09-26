@@ -12,7 +12,9 @@ export type AppView =
   | 'my-profile'
   | 'chat'
   | 'about'
-  | 'achievements';
+  | 'achievements'
+  | 'internships'
+  | 'projects';
 
 export interface ProfileMediaItem {
   id: string;
@@ -226,6 +228,12 @@ export interface AlumniProfile {
   mediaGallery?: ProfileMediaItem[];
   resumeDoc?: ResumeDocument;
   resumeVisibility?: 'public' | 'private';
+  openToInternships?: boolean;
+  openToProjectCollab?: boolean;
+  githubUrl?: string;
+  portfolioUrl?: string;
+  education?: { school: string; degree: string; year: string; field?: string }[];
+  isMentor?: boolean;
 }
 
 export interface TeacherProfile {
@@ -295,6 +303,16 @@ export interface StudentProfile {
   approvalStatus?: 'pending' | 'approved' | 'rejected';
   rejectionReason?: string;
   registrationDate?: string;
+  currentRole?: string;
+  company?: string;
+  githubUrl?: string;
+  portfolioUrl?: string;
+  linkedinUrl?: string;
+  openToInternships?: boolean;
+  openToProjectCollab?: boolean;
+  education?: { school: string; degree: string; year: string; field?: string }[];
+  mentorshipInterests?: string[];
+  areasOfExpertise?: string[];
 }
 
 export interface ConnectionRequest {
@@ -462,6 +480,34 @@ export interface CareerOpportunity {
   aiMatchReasons?: string[];
   applied?: boolean;
   saved?: boolean;
+  duration?: string;
+  isHiringOrRecommending?: 'hiring' | 'recommending' | 'both';
+  guidanceAlumniId?: string;
+  guidanceAlumniName?: string;
+  guidanceAlumniRole?: string;
+  guidanceAlumniCompany?: string;
+  guidanceAvailable?: boolean;
+}
+
+export interface ProjectCollaboration {
+  id: string;
+  title: string;
+  description: string;
+  requiredSkills: string[];
+  category: 'AI / Machine Learning' | 'Web Development' | 'Mobile Apps' | 'Cloud & DevOps' | 'Blockchain / Web3' | 'Cybersecurity' | 'Data Science' | 'Open Source';
+  teamRequirements: string;
+  duration: string;
+  collaborationType: 'Open Source' | 'Startup MVP' | 'Research Paper' | 'Hackathon Team' | 'Learning Project';
+  status: 'Open' | 'In Progress' | 'Completed' | 'Seeking Mentorship';
+  creatorId: string;
+  creatorName: string;
+  creatorRole: 'student' | 'alumni' | 'mentor' | 'teacher';
+  creatorAvatar: string;
+  creatorUniversity: string;
+  creatorCompany?: string;
+  createdAt: string;
+  applicantsCount: number;
+  hasApplied?: boolean;
 }
 
 export interface StartupListing {

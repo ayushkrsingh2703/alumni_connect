@@ -41,7 +41,7 @@ export const AIChatbotWidget: React.FC = () => {
     {
       id: 'welcome',
       sender: 'ai',
-      text: "Hello! 👋 I'm your Alumni Connect Assistant. I can help you find verified alumni, connect with experienced mentors, explore university networks, or guide you through platform features. How can I help you today?"
+      text: "Hello! 👋 I'm your LINKORA AI Assistant. I can help you find verified alumni, connect with experienced mentors, discover internship and project opportunities, or guide you through platform features. How can I help you today?"
     }
   ]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -85,7 +85,7 @@ export const AIChatbotWidget: React.FC = () => {
         reply = {
           id: (Date.now() + 1).toString(),
           sender: 'ai',
-          text: "Hello! 👋 How are you? I'm here to help you explore Alumni Connect."
+          text: "Hello! 👋 How are you? I'm here to help you explore LINKORA."
         };
       }
       // 2. "How are you?"
@@ -169,7 +169,7 @@ export const AIChatbotWidget: React.FC = () => {
         reply = {
           id: (Date.now() + 1).toString(),
           sender: 'ai',
-          text: "We have multiple verified IIT Roorkee alumni on Alumni Connect, including Priya Patel (Senior SDE at Microsoft), Rahul Sharma (ML Engineer at Microsoft), and Rohan Malhotra (Staff ML Engineer at Google).",
+          text: "We have multiple verified IIT Roorkee alumni on LINKORA, including Priya Patel (Senior SDE at Microsoft), Rahul Sharma (ML Engineer at Microsoft), and Rohan Malhotra (Staff ML Engineer at Google).",
           action: {
             label: "Explore IIT Roorkee Alumni",
             view: "explore",
@@ -295,7 +295,7 @@ export const AIChatbotWidget: React.FC = () => {
                 </div>
                 <div>
                   <div className="font-extrabold text-xs text-white flex items-center gap-1.5">
-                    <span>Alumni Connect AI</span>
+                    <span>LINKORA AI</span>
                     <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
                   </div>
                   <div className="text-[10px] text-slate-300">Conversational Campus Guide</div>

@@ -137,7 +137,7 @@ export const AlumniDetailModal: React.FC = () => {
               {selectedAlumni.verificationStatus === 'verified' ? (
                 <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-400 border border-teal-200 dark:border-teal-900">
                   <ShieldCheck className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
-                  Verified Alumni
+                  Alumni
                 </span>
               ) : (
                 <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-900">
@@ -146,11 +146,18 @@ export const AlumniDetailModal: React.FC = () => {
               )}
 
               {selectedAlumni.availableForMentorship && (
-                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-900">
-                  <Sparkles className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
-                  Available for Mentorship
+                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-900">
+                  <Sparkles className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
+                  Verified Mentor
                 </span>
               )}
+
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+                Open to Internships
+              </span>
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-800">
+                Open to Collab
+              </span>
             </div>
 
             <p className="text-sm font-bold text-blue-700 dark:text-blue-400 mt-1">
@@ -180,7 +187,7 @@ export const AlumniDetailModal: React.FC = () => {
           </div>
         </div>
 
-        {/* Primary Action Buttons Bar (Requirement 7: Primary CTA: Request Mentorship) */}
+        {/* Primary Action Buttons Bar */}
         <div className="flex flex-wrap items-center gap-2.5 py-4 border-b border-slate-100 dark:border-slate-800">
           {/* Primary CTA: Request Mentorship */}
           {selectedAlumni.availableForMentorship && (
@@ -217,15 +224,17 @@ export const AlumniDetailModal: React.FC = () => {
             </button>
           )}
 
-          <a
-            href={selectedAlumni.linkedinUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors"
-            title="LinkedIn Profile"
-          >
-            <ExternalLink className="w-4 h-4" />
-          </a>
+          {selectedAlumni.linkedinUrl && (
+            <a
+              href={selectedAlumni.linkedinUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors"
+              title="LinkedIn Profile"
+            >
+              <ExternalLink className="w-4 h-4" />
+            </a>
+          )}
         </div>
 
         {/* Details Section */}

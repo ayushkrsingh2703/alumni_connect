@@ -240,7 +240,7 @@ export const chatbotReply = (query) => {
   const q = query.toLowerCase().trim();
 
   if (/^(hello|hi|hey|namaste)/.test(q)) {
-    return { text: "Hello! 👋 How can I help you explore Alumni Connect?" };
+    return { text: "Hello! 👋 How can I help you explore LINKORA?" };
   }
   if (q.includes('how are you')) {
     return { text: "I'm doing great, thank you! How can I help you today?" };

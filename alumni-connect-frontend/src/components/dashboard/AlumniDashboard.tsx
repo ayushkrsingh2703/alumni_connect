@@ -84,7 +84,7 @@ export const AlumniDashboard: React.FC = () => {
               Sign In to Access Alumni Dashboard
             </h2>
             <p className="text-slate-600 dark:text-slate-400 text-xs mt-2 leading-relaxed">
-              Join Alumni Connect to build meaningful professional connections, manage mentorship requests from junior students, and give back to your alma mater.
+              Join LINKORA to build meaningful professional connections, manage mentorship requests from junior students, and give back to your alma mater.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">

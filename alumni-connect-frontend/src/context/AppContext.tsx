@@ -23,7 +23,8 @@ import {
   Certification,
   Project,
   ProfileMediaItem,
-  AIMentorMatch
+  AIMentorMatch,
+  ProjectCollaboration
 } from '../types';
 import {
   ALUMNI_LIST,
@@ -39,7 +40,8 @@ import {
   UNIVERSITIES,
   MOCK_PENDING_STUDENTS,
   MOCK_STARTUPS,
-  MOCK_FEEDBACK_REPORTS
+  MOCK_FEEDBACK_REPORTS,
+  INITIAL_PROJECT_COLLABORATIONS
 } from '../data/mockData';
 import { matchTeachersAndMentorsAI } from '../utils/aiEngines';
 
@@ -55,7 +57,9 @@ export type AppView =
   | 'admin-dashboard'
   | 'my-profile'
   | 'chat'
-  | 'about';
+  | 'about'
+  | 'internships'
+  | 'projects';
 
 interface Toast {
   id: string;
@@ -172,6 +176,14 @@ interface AppContextType {
   moderateStartup: (id: string, status: 'approved' | 'rejected') => void;
   moderateEvent: (id: string, status: 'approved' | 'rejected') => void;
   resolveFeedback: (id: string) => void;
+  // Project Collaboration & Internship Collaboration
+  projectCollaborations: ProjectCollaboration[];
+  createProjectCollaboration: (collab: Omit<ProjectCollaboration, 'id' | 'createdAt' | 'applicantsCount' | 'hasApplied'>) => void;
+  applyToProjectCollaboration: (id: string, note?: string) => void;
+  updateProjectCollaborationStatus: (id: string, status: ProjectCollaboration['status']) => void;
+  savedOpportunityIds: string[];
+  toggleSaveOpportunity: (id: string) => void;
+  requestInternshipGuidance: (opportunityId: string, alumniId: string, note?: string) => void;
   // Student Skills, Certs, Achievements, Projects, Resume & CV Management
   studentSkills: StudentSkill[];
   addStudentSkill: (name: string, proficiency: SkillProficiency, category?: string) => void;
@@ -660,6 +672,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [selectedAchievement, setSelectedAchievement] = useState<AchievementItem | null>(null);
   const [events, setEvents] = useState<AlumniEvent[]>(ALUMNI_EVENTS);
   const [opportunities, setOpportunities] = useState<CareerOpportunity[]>(CAREER_OPPORTUNITIES);
+  const [projectCollaborations, setProjectCollaborations] = useState<ProjectCollaboration[]>(INITIAL_PROJECT_COLLABORATIONS);
+  const [savedOpportunityIds, setSavedOpportunityIds] = useState<string[]>(['opp-1', 'opp-4']);
 
   // Email Verification State
   const [isEmailVerified, setIsEmailVerified] = useState<boolean>(() => {
@@ -675,7 +689,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [otpModalOpen, setOtpModalOpen] = useState(false);
   const [pendingEmailForOtp, setPendingEmailForOtp] = useState('');
   const [getTheAppModalOpen, setGetTheAppModalOpen] = useState(false);
-  const GOOGLE_PLAY_STORE_APP_URL = 'https://play.google.com/store/apps/details?id=com.alumniconnect.app';
+  const GOOGLE_PLAY_STORE_APP_URL = 'https://play.google.com/store/apps/details?id=com.linkora.app';
 
   // AI Resume Analyser Modal State
   const [isResumeAnalyserOpen, setIsResumeAnalyserOpen] = useState(false);
@@ -1495,6 +1509,88 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     addToast('Feedback ticket marked as resolved.', 'success');
   };
 
+  // Project Collaboration Handlers
+  const createProjectCollaboration = (collab: Omit<ProjectCollaboration, 'id' | 'createdAt' | 'applicantsCount' | 'hasApplied'>) => {
+    if (!isAuthenticated) {
+      triggerAuthGate('create a project collaboration request');
+      return;
+    }
+    const newProject: ProjectCollaboration = {
+      ...collab,
+      id: `collab-${Date.now()}`,
+      creatorId: currentUser.id,
+      creatorName: currentUser.name || 'Community Member',
+      creatorRole: (currentUser.role === 'teacher' ? 'mentor' : currentUser.role) as any,
+      creatorAvatar: currentUser.avatar || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400&auto=format&fit=crop&q=80',
+      creatorUniversity: currentUser.university || "Tula's Institute",
+      createdAt: new Date().toISOString().split('T')[0],
+      applicantsCount: 0,
+      hasApplied: false
+    };
+    setProjectCollaborations(prev => [newProject, ...prev]);
+    addToast(`Project collaboration "${newProject.title}" published!`, 'success');
+  };
+
+  const applyToProjectCollaboration = (id: string, _note?: string) => {
+    if (!isAuthenticated) {
+      triggerAuthGate('apply to collaborate on this project');
+      return;
+    }
+    setProjectCollaborations(prev =>
+      prev.map(p => {
+        if (p.id === id) {
+          if (p.hasApplied) {
+            addToast('You have already applied to collaborate on this project.', 'info');
+            return p;
+          }
+          addToast(`Application sent to collaborate on "${p.title}"!`, 'success');
+          return { ...p, applicantsCount: p.applicantsCount + 1, hasApplied: true };
+        }
+        return p;
+      })
+    );
+  };
+
+  const updateProjectCollaborationStatus = (id: string, status: ProjectCollaboration['status']) => {
+    setProjectCollaborations(prev => prev.map(p => p.id === id ? { ...p, status } : p));
+    addToast(`Project status updated to ${status}.`, 'info');
+  };
+
+  const toggleSaveOpportunity = (id: string) => {
+    if (!isAuthenticated) {
+      triggerAuthGate('save this opportunity');
+      return;
+    }
+    setSavedOpportunityIds(prev => {
+      const exists = prev.includes(id);
+      if (exists) {
+        addToast('Opportunity removed from saved list.', 'info');
+        return prev.filter(x => x !== id);
+      } else {
+        addToast('Opportunity saved to your dashboard!', 'success');
+        return [...prev, id];
+      }
+    });
+  };
+
+  const requestInternshipGuidance = (opportunityId: string, alumniId: string, note?: string) => {
+    if (!isAuthenticated) {
+      triggerAuthGate('request internship guidance');
+      return;
+    }
+    const opp = opportunities.find(o => o.id === opportunityId);
+    const targetAlumni = alumniList.find(a => a.id === alumniId);
+    const company = opp?.company || targetAlumni?.company || 'partner company';
+    
+    sendMentorshipRequest(
+      alumniId,
+      `Internship Guidance & Referral at ${company}`,
+      'Internship Guidance',
+      note || `Hi ${targetAlumni?.name || 'Mentor'}, I noticed the ${opp?.title || 'internship opportunity'} at ${company} and would deeply value your guidance on interview preparation and roadmap.`
+    );
+    addToast(`Mentorship request for ${company} internship sent!`, 'success');
+  };
+
   // Switch persona for admin/testing
   const switchUserRole = (role: UserRole) => {
     if (role === 'guest') {
@@ -2196,6 +2292,14 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         postOpportunity,
         moderateOpportunity,
         moderateEvent,
+        // Project Collaboration & Internship Guidance
+        projectCollaborations,
+        createProjectCollaboration,
+        applyToProjectCollaboration,
+        updateProjectCollaborationStatus,
+        savedOpportunityIds,
+        toggleSaveOpportunity,
+        requestInternshipGuidance,
         // Student skills, certs, achievements, projects, resume & media
         studentSkills,
         addStudentSkill,

@@ -255,41 +255,31 @@ export const LandingPage: React.FC = () => {
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
 
-            {/* ── Left Column ── */}
+            {/* ── Left Column: Clean, Spacious, Premium Startup Hero ── */}
             <div className="lg:col-span-6 text-left space-y-6">
 
-              {/* Label strip */}
+              {/* Luminous Brand Eyebrow Badge */}
               <motion.div
-                initial={{ opacity: 0, y: -10 }}
+                initial={{ opacity: 0, y: -8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.05 }}
               >
-                <p className="text-[10px] sm:text-[11px] font-black tracking-[0.22em] uppercase text-blue-600 dark:text-blue-400 mb-3">
-                  YOUR COLLEGE &nbsp;•&nbsp; YOUR NETWORK &nbsp;•&nbsp; YOUR FUTURE
-                </p>
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50/90 dark:bg-blue-950/70 border border-blue-200/80 dark:border-blue-800 text-xs font-bold text-blue-700 dark:text-blue-300 shadow-2xs backdrop-blur-sm">
+                  <Sparkles className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                  <span>LINKORA · AI-Powered Professional Network</span>
+                </div>
               </motion.div>
 
-              {/* Trust Badge */}
-              <motion.div
-                initial={{ opacity: 0, x: -12 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200/80 dark:border-blue-900 text-xs font-semibold text-blue-800 dark:text-blue-300 shadow-sm"
-              >
-                <ShieldCheck className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                <span>Verified Pan-India University Network</span>
-              </motion.div>
-
-              {/* Main Heading */}
+              {/* Main Heading: Clear Tagline */}
               <motion.h1
-                initial={{ opacity: 0, y: 18 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
-                className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.10]"
+                transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.08]"
               >
-                Connect.{' '}Discover.{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-teal-600 dark:from-blue-400 dark:via-indigo-400 dark:to-teal-400">
-                  Grow Together.
+                Connect.{' '}Mentor.{' '}
+                <span className="block mt-1 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-teal-500 dark:from-blue-400 dark:via-indigo-400 dark:to-teal-300">
+                  Collaborate. Grow.
                 </span>
               </motion.h1>
 
@@ -297,119 +287,77 @@ export const LandingPage: React.FC = () => {
               <motion.p
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, delay: 0.28 }}
+                transition={{ duration: 0.55, delay: 0.25 }}
                 className="text-base sm:text-lg text-slate-600 dark:text-slate-300 font-normal leading-relaxed max-w-xl"
               >
-                Alumni Connect bridges students, alumni, mentors and institutions into one trusted ecosystem — powered by verified institutional identity.
+                LINKORA bridges ambitious students, verified alumni, mentors, top institutions, internships, and project collaborations into one trusted, intelligent ecosystem.
               </motion.p>
 
-              {/* CTA Buttons */}
+              {/* Clean, Non-Cluttered Action Buttons */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.36 }}
-                className="pt-2 flex flex-wrap items-center gap-3"
+                transition={{ duration: 0.5, delay: 0.35 }}
+                className="pt-2 flex flex-wrap items-center gap-3.5"
               >
                 <motion.button
-                  whileHover={{ scale: 1.04, y: -1 }}
-                  whileTap={{ scale: 0.96 }}
+                  whileHover={{ scale: 1.03, y: -1 }}
+                  whileTap={{ scale: 0.97 }}
                   onClick={() => navigate('explore')}
-                  className="px-5 sm:px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm shadow-md transition-shadow flex items-center gap-2 cursor-pointer"
+                  className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-md shadow-blue-500/20 hover:shadow-lg transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <Compass className="w-4 h-4" />
-                  <span>Explore Alumni</span>
+                  <span>Explore Network</span>
+                  <ArrowRight className="w-3.5 h-3.5 opacity-80" />
                 </motion.button>
                 <motion.button
-                  whileHover={{ scale: 1.04, y: -1 }}
-                  whileTap={{ scale: 0.96 }}
+                  whileHover={{ scale: 1.03, y: -1 }}
+                  whileTap={{ scale: 0.97 }}
                   onClick={() => navigate('mentors')}
-                  className="px-5 sm:px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm shadow-md transition-shadow flex items-center gap-2 cursor-pointer"
+                  className="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow-md shadow-indigo-500/20 hover:shadow-lg transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <Sparkles className="w-4 h-4" />
                   <span>Find a Mentor</span>
                 </motion.button>
                 <motion.button
-                  whileHover={{ scale: 1.04, y: -1 }}
-                  whileTap={{ scale: 0.96 }}
+                  whileHover={{ scale: 1.03, y: -1 }}
+                  whileTap={{ scale: 0.97 }}
                   onClick={() => { setAuthModalMode('signup'); setAuthModalOpen(true); }}
-                  className="px-5 sm:px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-slate-400 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 font-bold text-xs sm:text-sm shadow-sm transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-5 py-3 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-slate-400 bg-white dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 font-bold text-sm shadow-2xs transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <UserPlus className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                  <span>Join the Network</span>
+                  <span>Join LINKORA</span>
                 </motion.button>
               </motion.div>
 
-              {/* Floating Pills */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.48 }}
-                className="pt-2"
-              >
-                <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider block mb-2.5">
-                  Verified Ecosystem Highlights
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {floatingPills.slice(0, 6).map((pill, idx) => (
-                    <motion.div
-                      key={idx}
-                      whileHover={{ scale: 1.08, y: -2 }}
-                      animate={{ y: [0, -(2 + idx % 3), 0] }}
-                      transition={{
-                        duration: 3.5 + idx * 0.4,
-                        repeat: Infinity,
-                        ease: 'easeInOut',
-                        delay: idx * 0.3,
-                      }}
-                      className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border shadow-sm cursor-default ${pill.bg} ${pill.rotation}`}
-                    >
-                      <Sparkles className="w-3 h-3 opacity-70" />
-                      <span>{pill.text}</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Floating info cards — gently bob with live beacons */}
+              {/* Streamlined Live Metric Highlights Strip */}
               <motion.div
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.55 }}
-                className="flex flex-wrap gap-3 pt-1"
+                transition={{ duration: 0.5, delay: 0.45 }}
+                className="pt-3"
               >
-                <motion.div
-                  animate={{ y: [0, -4, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                  className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm text-xs font-semibold text-slate-700 dark:text-slate-300 group hover:border-blue-400 transition-colors"
-                >
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                  </span>
-                  <span className="text-base">🎓</span> 10,000+ Verified Alumni
-                </motion.div>
-                <motion.div
-                  animate={{ y: [0, -3, 0] }}
-                  transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                  className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm text-xs font-semibold text-slate-700 dark:text-slate-300 group hover:border-indigo-400 transition-colors"
-                >
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
-                  </span>
-                  <span className="text-base">🏛️</span> 50+ Institutions
-                </motion.div>
-                <motion.div
-                  animate={{ y: [0, -5, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-                  className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm text-xs font-semibold text-slate-700 dark:text-slate-300 group hover:border-teal-400 transition-colors"
-                >
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
-                  </span>
-                  <span className="text-base">✨</span> 500+ Active Mentors
-                </motion.div>
+                <div className="inline-flex flex-wrap items-center gap-4 sm:gap-6 py-2.5 px-4 rounded-2xl bg-white/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 shadow-2xs backdrop-blur-sm text-xs font-semibold text-slate-700 dark:text-slate-300">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                    <span><strong>10,000+</strong> Alumni</span>
+                  </div>
+                  <div className="hidden sm:inline text-slate-300 dark:text-slate-600">•</div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+                    <span><strong>500+</strong> Mentors</span>
+                  </div>
+                  <div className="hidden sm:inline text-slate-300 dark:text-slate-600">•</div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+                    <span><strong>50+</strong> Campuses</span>
+                  </div>
+                  <div className="hidden sm:inline text-slate-300 dark:text-slate-600">•</div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                    <span>Verified Identity</span>
+                  </div>
+                </div>
               </motion.div>
             </div>
 
@@ -631,14 +579,14 @@ export const LandingPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Section: How Alumni Connect Makes a Difference (Requirement 4) */}
+          {/* Section: How LINKORA Makes a Difference (Requirement 4) */}
           <div className="space-y-8 pt-4">
             <div className="text-center max-w-2xl mx-auto">
               <span className="text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-950/60 px-3 py-1 rounded-full border border-teal-200/70 dark:border-teal-900">
                 Ecosystem Architecture
               </span>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mt-3">
-                How Alumni Connect Makes a Difference
+                How LINKORA Makes a Difference
               </h3>
               <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
                 A structured multi-stakeholder model bridging every facet of education and career advancement.
@@ -1324,7 +1272,7 @@ export const LandingPage: React.FC = () => {
               <span>Our Vision & Mission</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              Why Alumni Connect?
+              Why LINKORA?
             </h2>
             <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
               Students often have critical questions about career roadmaps, internships, off-campus placements, higher studies, and industry expectations, but rarely have direct access to the right verified seniors to guide them.
@@ -1447,8 +1395,8 @@ export const LandingPage: React.FC = () => {
       <footer className="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-12 px-4 sm:px-6 lg:px-8 text-slate-600 dark:text-slate-400 text-xs transition-colors">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
-            <div className="font-extrabold text-sm text-slate-900 dark:text-white">Alumni Connect India</div>
-            <p className="text-slate-400 mt-0.5">Verified Cross-University Professional Networking Ecosystem</p>
+            <div className="font-extrabold text-sm text-slate-900 dark:text-white">LINKORA India</div>
+            <p className="text-slate-400 mt-0.5">AI-Powered Professional & Mentorship Ecosystem</p>
           </div>
           <div className="flex flex-wrap items-center gap-6 font-medium">
             <button onClick={() => setCurrentView('landing')} className="hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">Home</button>
@@ -1457,7 +1405,7 @@ export const LandingPage: React.FC = () => {
             <button onClick={() => setCurrentView('mentors')} className="hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">Mentorship</button>
             <button onClick={() => setCurrentView('about')} className="hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">About</button>
           </div>
-          <p className="text-slate-400">© 2026 Alumni Connect. All institutional rights verified.</p>
+          <p className="text-slate-400">© 2026 LINKORA. Connect. Mentor. Collaborate. Grow.</p>
         </div>
       </footer>
 

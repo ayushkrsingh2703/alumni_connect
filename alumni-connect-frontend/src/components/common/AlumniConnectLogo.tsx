@@ -7,7 +7,7 @@ interface LogoProps {
   className?: string;
 }
 
-export const AlumniConnectLogo: React.FC<LogoProps> = ({
+export const LinkoraLogo: React.FC<LogoProps> = ({
   size = 'md',
   variant = 'auto',
   showSubtitle = true,
@@ -30,9 +30,9 @@ export const AlumniConnectLogo: React.FC<LogoProps> = ({
 
   return (
     <div className={`flex items-center gap-2.5 select-none ${className}`}>
-      {/* Precision Geometric Mark: Mortarboard, Networking Nodes & Upward Growth */}
+      {/* Precision Geometric Mark: LINK (Nodes & Interlocking Ring) + AURA (Radiant Gradient) */}
       <div
-        className={`relative flex items-center justify-center rounded-xl bg-gradient-to-br from-slate-900 via-indigo-950 to-blue-900 dark:from-slate-800 dark:via-indigo-900 dark:to-blue-900 p-0.5 shadow-sm border border-slate-300/40 dark:border-slate-700/60 ${iconSizes[size]}`}
+        className={`relative flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-700 via-indigo-600 to-teal-500 p-0.5 shadow-md border border-white/20 dark:border-slate-700/60 ${iconSizes[size]}`}
       >
         <svg
           viewBox="0 0 36 36"
@@ -40,85 +40,80 @@ export const AlumniConnectLogo: React.FC<LogoProps> = ({
           xmlns="http://www.w3.org/2000/svg"
           className="w-full h-full p-1"
         >
-          {/* Base Diamond / Academic Cap Foundation */}
+          {/* Linked Interlocking Orbital Aura Loops */}
           <path
-            d="M18 4L4 12L18 20L32 12L18 4Z"
-            fill="url(#cap-grad)"
+            d="M8 18C8 12.4772 12.4772 8 18 8C23.5228 8 28 12.4772 28 18"
+            stroke="white"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeDasharray="1 1"
+            className="opacity-40"
           />
-          {/* Connection Arc & Growth Surge */}
+          {/* Main Link Arc */}
           <path
-            d="M9 16.5V23.5C9 27.5 13 31 18 31C23 31 27 27.5 27 23.5V16.5"
-            stroke="url(#arc-grad)"
-            strokeWidth="2.2"
+            d="M6 18C6 11.3726 11.3726 6 18 6C24.6274 6 30 11.3726 30 18C30 24.6274 24.6274 30 18 30"
+            stroke="url(#linkora-aura)"
+            strokeWidth="2.8"
             strokeLinecap="round"
           />
-          {/* Network Node 1 (Student Node) */}
-          <circle cx="10" cy="21" r="2" fill="#38BDF8" />
-          {/* Network Node 2 (Alumni Node) */}
-          <circle cx="26" cy="21" r="2" fill="#2DD4BF" />
-          {/* Central Mentor / Growth Pinnacle Star */}
+          {/* Central Connecting Diamond / Aura Core */}
           <path
-            d="M18 11L19.2 14.5L22.8 14.8L20 17.2L20.8 20.7L18 18.9L15.2 20.7L16 17.2L13.2 14.8L16.8 14.5L18 11Z"
-            fill="#F8FAFC"
+            d="M18 10L23 18L18 26L13 18L18 10Z"
+            fill="#FFFFFF"
+            className="drop-shadow-sm"
           />
+          {/* Intelligent Node Connections */}
+          <circle cx="10" cy="18" r="2.5" fill="#38BDF8" stroke="#FFFFFF" strokeWidth="1.2" />
+          <circle cx="26" cy="18" r="2.5" fill="#2DD4BF" stroke="#FFFFFF" strokeWidth="1.2" />
+          <circle cx="18" cy="18" r="2" fill="#6366F1" />
 
           <defs>
-            <linearGradient id="cap-grad" x1="4" y1="4" x2="32" y2="20" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#3B82F6" />
-              <stop offset="0.6" stopColor="#4F46E5" />
-              <stop offset="1" stopColor="#1E293B" />
-            </linearGradient>
-            <linearGradient id="arc-grad" x1="9" y1="16.5" x2="27" y2="31" gradientUnits="userSpaceOnUse">
+            <linearGradient id="linkora-aura" x1="6" y1="6" x2="30" y2="30" gradientUnits="userSpaceOnUse">
               <stop stopColor="#38BDF8" />
-              <stop offset="0.5" stopColor="#6366F1" />
-              <stop offset="1" stopColor="#14B8A6" />
+              <stop offset="0.5" stopColor="#818CF8" />
+              <stop offset="1" stopColor="#34D399" />
             </linearGradient>
           </defs>
         </svg>
       </div>
 
-      {/* Typography: Clean, Professional, Accessible Contrast in Light & Dark */}
+      {/* Typography: LINKORA + Connect. Mentor. Collaborate. Grow. */}
       <div className="flex flex-col">
-        <div className={`font-extrabold tracking-tight leading-none ${textSizes[size]}`}>
+        <div className={`font-black tracking-tight leading-none flex items-center ${textSizes[size]}`}>
           <span
-            style={{ color: 'var(--logo-primary)' }}
             className={
               variant === 'light'
-                ? 'text-slate-900'
+                ? 'text-slate-900 tracking-tight'
                 : variant === 'dark'
-                ? 'text-white'
-                : 'text-slate-900 dark:text-white transition-colors duration-200'
+                ? 'text-white tracking-tight'
+                : 'text-slate-900 dark:text-white transition-colors duration-200 tracking-tight'
             }
           >
-            Alumni
+            LINK
           </span>
           <span
-            style={{ color: 'var(--logo-accent)' }}
-            className={
-              variant === 'light'
-                ? 'text-blue-600 ml-1'
-                : variant === 'dark'
-                ? 'text-blue-400 ml-1'
-                : 'text-blue-600 dark:text-blue-400 ml-1 transition-colors duration-200'
-            }
+            className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-teal-500 dark:from-blue-400 dark:via-indigo-400 dark:to-teal-400 tracking-tight"
           >
-            Connect
+            ORA
           </span>
         </div>
         {showSubtitle && (
           <span
             className={
               variant === 'light'
-                ? 'text-[9px] font-semibold tracking-wider uppercase mt-0.5 text-slate-500'
+                ? 'text-[8.5px] font-bold tracking-wider uppercase mt-0.5 text-slate-500'
                 : variant === 'dark'
-                ? 'text-[9px] font-semibold tracking-wider uppercase mt-0.5 text-slate-400'
-                : 'text-[9px] font-semibold tracking-wider uppercase mt-0.5 text-slate-500 dark:text-slate-400 transition-colors duration-200'
+                ? 'text-[8.5px] font-bold tracking-wider uppercase mt-0.5 text-slate-400'
+                : 'text-[8.5px] font-bold tracking-wider uppercase mt-0.5 text-slate-500 dark:text-slate-400 transition-colors duration-200'
             }
           >
-            Verified University Network
+            Connect. Mentor. Collaborate. Grow.
           </span>
         )}
       </div>
     </div>
   );
 };
+
+export const AlumniConnectLogo = LinkoraLogo;
+

@@ -116,12 +116,12 @@ export const AboutPage: React.FC = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
             </span>
-            About Alumni Connect
+            About LINKORA
           </span>
         </div>
 
         {/* ========================================================= */}
-        {/* 1. HERO SECTION: WHAT IS ALUMNI CONNECT?                   */}
+        {/* 1. HERO SECTION: WHAT IS LINKORA?                         */}
         {/* ========================================================= */}
         <div className="text-center max-w-3xl mx-auto space-y-5">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 text-xs font-bold uppercase tracking-wider shadow-xs">
@@ -138,7 +138,7 @@ export const AboutPage: React.FC = () => {
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
-            Traditional campus networks stop at graduation day. Alumni Connect unifies verified academic histories with industry experience—democratizing mentorship so every student has an equal path to career excellence.
+            Traditional campus networks stop at graduation day. LINKORA unifies verified academic histories with industry experience—democratizing mentorship so every student has an equal path to career excellence.
           </p>
 
           {/* Live Platform Highlights with pulsating beacons */}
@@ -247,7 +247,7 @@ export const AboutPage: React.FC = () => {
               Visual Progression
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
-              How Alumni Connect Works
+              How LINKORA Works
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
               The continuous journey from institutional enrollment to experienced mentor.
@@ -329,10 +329,10 @@ export const AboutPage: React.FC = () => {
               Distinct Value Proposition
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
-              Why Alumni Connect is Different
+              Why LINKORA is Different
             </h2>
             <p className="text-sm text-slate-300 leading-relaxed">
-              Unlike generic social media platforms where claims are unverifiable and outreach goes unanswered, Alumni Connect is tailored specifically for academic-to-industry transitions.
+              Unlike generic social media platforms where claims are unverifiable and outreach goes unanswered, LINKORA is tailored specifically for academic-to-industry transitions.
             </p>
           </div>
 
@@ -544,7 +544,7 @@ export const AboutPage: React.FC = () => {
               Ready to Connect with Your Community?
             </h2>
             <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed">
-              Join thousands of students and alumni already collaborating, mentoring, and advancing careers together on Alumni Connect.
+              Join thousands of students and alumni already collaborating, mentoring, and advancing careers together on LINKORA.
             </p>
             <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
               <motion.button

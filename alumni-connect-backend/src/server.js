@@ -78,7 +78,7 @@ app.get('/api/health', async (req, res) => {
   const dbOk = await testConnection();
   res.json({
     status: dbOk ? 'ok' : 'degraded',
-    message: 'Alumni Connect API running',
+    message: 'LINKORA API running',
     database: dbOk ? 'connected' : 'disconnected',
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
@@ -124,7 +124,7 @@ app.use((err, req, res, next) => {
 // Start Server
 // ============================================================
 const startServer = async () => {
-  console.log('\n🚀 Starting Alumni Connect API server...\n');
+  console.log('\n🚀 Starting LINKORA API server...\n');
 
   const dbOk = await testConnection();
   if (!dbOk) {

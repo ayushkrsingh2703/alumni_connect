@@ -200,7 +200,7 @@ export const IntroSequence: React.FC = () => {
                 transition={{ delay: 0.18, duration: 0.4 }}
                 className="text-[11px] font-black tracking-[0.28em] uppercase text-blue-600 dark:text-blue-400"
               >
-                Verified University Network
+                Connect. Mentor. Collaborate. Grow.
               </motion.p>
             </motion.div>
           )}

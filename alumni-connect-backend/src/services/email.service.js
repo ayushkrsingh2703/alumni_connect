@@ -15,7 +15,7 @@ export const sendVerificationEmail = async (email, otp) => {
     console.log('📧 EMAIL VERIFICATION (DEV MODE)');
     console.log('='.repeat(60));
     console.log(`   To:      ${email}`);
-    console.log(`   Subject: Verify your Alumni Connect account`);
+    console.log(`   Subject: Verify your LINKORA account`);
     console.log(`   OTP:     \x1b[33m\x1b[1m${otp}\x1b[0m`);
     console.log(`   Expires: 10 minutes`);
     console.log('='.repeat(60) + '\n');
