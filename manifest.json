@@ -1,0 +1,17 @@
+{
+  "name": "LINKORA",
+  "short_name": "linkora",
+  "description": "LINKORA (LINK + AURA) — The AI-powered professional network connecting students, verified alumni, mentors, colleges, internships, and project collaborations.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#312727",
+  "theme_color": "#191111",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "https://alumni-connect-qnmo.vercel.app/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
