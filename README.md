@@ -35,4 +35,3 @@ A **verified university network platform** connecting students, alumni, mentors,
 | Multer | File uploads |
 | Socket.IO | Realtime (planned) |
 
-## 📁 Project Structure
