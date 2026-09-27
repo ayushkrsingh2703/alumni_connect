@@ -1,4 +1,4 @@
-# Alumni Connect 🎓
+# LinkOra 🎓
 
 A **verified university network platform** connecting students, alumni, mentors, and institutions — built for Hack the future 3.0 2026.
 
